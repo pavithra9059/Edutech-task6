@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617 70%);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Animated background glow */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    #00e5ff,
+    #00ff95,
+    #ff4fd8,
+    #7c3aed
+  );
+  opacity: 0.08;
+  animation: moveBg 12s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Container */
+.container {
+  text-align: center;
+  padding: 30px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Title */
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #00e5ff, #00ff95);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: drop-shadow(0 0 5px #00e5ff); }
+  to { filter: drop-shadow(0 0 15px #00ff95); }
+}
+
+/* Input box */
+.inputBox {
+  margin: 20px 0;
+}
+
+input {
+  padding: 12px 15px;
+  width: 260px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  outline: none;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+input:focus {
+  border-color: #00e5ff;
+  box-shadow: 0 0 10px #00e5ff;
+}
+
+/* Buttons */
+button {
+  padding: 12px 14px;
+  margin-left: 6px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00ff95, #00e5ff);
+  font-weight: bold;
+  color: black;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button hover animation */
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 255, 149, 0.3);
+}
+
+/* Button click effect */
+button:active {
+  transform: scale(0.95);
+}
+
+/* Grid layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+  padding: 10px;
+}
+
+/* Glass card */
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 15px;
+  border-radius: 16px;
+  transition: 0.4s ease;
+  animation: popIn 0.4s ease;
+}
+
+/* Card animation */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 229, 255, 0.2);
+  border-color: #00e5ff;
+}
+
+/* Status text */
+p {
+  color: #00ff95;
+  font-weight: bold;
+  margin-top: 10px;
+}
